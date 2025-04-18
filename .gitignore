@@ -1,0 +1,22 @@
+# Ignore Python virtual environments
+venv/
+.env/
+env/
+ENV/
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VSCode settings (optional, if you use VSCode)
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment variables (if using dotenv)
+.env
+
+# macOS/Linux-specific files (harmless on Windows but good for cross-platform)
+.DS_Store
