@@ -1,0 +1,29 @@
+[33mcommit 8da51824bede4f83e67d7adbc613213a954a57bb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: MSHAHID1122 <samd13894@gmail.com>
+Date:   Sun Apr 20 04:07:29 2025 +0500
+
+    implemented user authentication
+
+[33mcommit 45ada2e7bd778961ccd5c7eaab09e79c520c258c[m
+Author: MSHAHID1122 <samd13894@gmail.com>
+Date:   Sat Apr 19 18:01:03 2025 +0500
+
+    update django app by using static file generation
+
+[33mcommit c78513f21f6cf155e6f1ef0d9fb385bad3854814[m
+Author: MSHAHID1122 <samd13894@gmail.com>
+Date:   Sat Apr 19 00:59:41 2025 +0500
+
+    commiting class compoents
+
+[33mcommit 3b086916f3e944c9186ed0c977d86d5c6faf3030[m
+Author: MSHAHID1122 <samd13894@gmail.com>
+Date:   Sat Apr 19 00:41:58 2025 +0500
+
+    pushing the hello world function component in django
+
+[33mcommit 9e6d8725fa6d6b4d3acee94e57a70481b17205e4[m
+Author: MSHAHID1122 <samd13894@gmail.com>
+Date:   Fri Apr 18 23:56:34 2025 +0500
+
+    Initial commit finance application

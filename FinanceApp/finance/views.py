@@ -1,7 +1,7 @@
 from django.shortcuts import render,HttpResponse
 
 from django.views import View
-
+from finance.forms import RegistrationForm
 # #function based view
 # def home(request):
 #     return HttpResponse("Hello World")
@@ -18,5 +18,6 @@ from django.views import View
 
 class RegisterView(View):
     def get(self,request,*args,**kwars):
-        return render(request,"finance/register.html")
+        form = RegistrationForm()
+        return render(request,"finance/register.html",{'form':form})
 
