@@ -13,6 +13,13 @@
       <h2 class="text-4xl font-extrabold text-blue-600 mb-4">
         Create an Account
       </h2>
+      <form action="" class="" method="post">
+        {% csrf_token %}
+        <div>
+          <label for="id_username">Enter your name</label>
+          <input type="text" name="user_name" id="id_username" />
+        </div>
+      </form>
     </div>
   </body>
 </html>
