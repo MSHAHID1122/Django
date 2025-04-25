@@ -24,6 +24,11 @@
             id="id_username"
             placeholder="Enter your name"
           />
+          {% if form.user_name.errors %}
+          <p>{{form.user_name.errors.0}}</p>
+          {% endif %}
+        </div>
+        <div>
           <label for="id_email">Enter your Email</label>
           <input
             class="bg-gray-100"
@@ -32,6 +37,11 @@
             id="id_email"
             placeholder="Enter your Email"
           />
+          {% if form.id_email.errors %}
+          <p>{{form.id_email.errors.0}}</p>
+          {% endif %}
+        </div>
+        <div>
           <label for="id_user_password">Enter your Password</label>
           <input
             class="bg-gray-100"
@@ -40,6 +50,11 @@
             id="id_user_password"
             placeholder="Enter your Password"
           />
+          {% if form.id_user_password.errors %}
+          <p>{{form.id_user_password.errors.0}}</p>
+          {% endif %}
+        </div>
+        <div>
           <label for="id_confirm_password">Confirm your Password</label>
           <input
             class="bg-gray-100"
@@ -48,10 +63,11 @@
             id="id_confirm_password"
             placeholder="Confirm Password"
           />
+          {% if form.id_confirm_password.errors %}
+          <p>{{form.id_confirm_password.errors.0}}</p>
+          {% endif %}
         </div>
-        {% if form.user_name.errors %}
-        <p>{{form.user_name.errors.0}}</p>
-        {% endif %}
+        <div><button type="submit">Register</button></div>
       </form>
     </div>
   </body>
