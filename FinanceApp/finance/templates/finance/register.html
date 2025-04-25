@@ -29,16 +29,24 @@
             class="bg-gray-100"
             type="text"
             name="user_email"
-            id="id_user_mail"
+            id="id_email"
             placeholder="Enter your Email"
           />
-          <label for="id_username">Enter your Password</label>
+          <label for="id_user_password">Enter your Password</label>
           <input
             class="bg-gray-100"
             type="text"
             name="user_password"
             id="id_user_password"
             placeholder="Enter your Password"
+          />
+          <label for="id_confirm_password">Confirm your Password</label>
+          <input
+            class="bg-gray-100"
+            type="text"
+            name="confirm_password"
+            id="id_confirm_password"
+            placeholder="Confirm Password"
           />
         </div>
         {% if form.user_name.errors %}
