@@ -1,7 +1,8 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 
 from django.views import View
 from finance.forms import RegistrationForm
+from django.contrib.auth import login
 # #function based view
 # def home(request):
 #     return HttpResponse("Hello World")
@@ -21,3 +22,9 @@ class RegisterView(View):
         form = RegistrationForm()
         return render(request,"finance/register.html",{'form':form})
 
+    def post(self,request,*args,**kwargs):
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request,user)
+            redirect('')
