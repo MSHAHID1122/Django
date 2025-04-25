@@ -17,8 +17,33 @@
         {% csrf_token %}
         <div>
           <label for="id_username">Enter your name</label>
-          <input type="text" name="user_name" id="id_username" />
+          <input
+            class="bg-gray-100"
+            type="text"
+            name="user_name"
+            id="id_username"
+            placeholder="Enter your name"
+          />
+          <label for="id_email">Enter your Email</label>
+          <input
+            class="bg-gray-100"
+            type="text"
+            name="user_email"
+            id="id_user_mail"
+            placeholder="Enter your Email"
+          />
+          <label for="id_username">Enter your Password</label>
+          <input
+            class="bg-gray-100"
+            type="text"
+            name="user_password"
+            id="id_user_password"
+            placeholder="Enter your Password"
+          />
         </div>
+        {% if form.user_name.errors %}
+        <p>{{form.user_name.errors.0}}</p>
+        {% endif %}
       </form>
     </div>
   </body>
