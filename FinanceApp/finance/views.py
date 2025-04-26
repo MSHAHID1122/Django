@@ -1,5 +1,4 @@
 from django.shortcuts import render,HttpResponse,redirect
-
 from django.views import View
 from finance.forms import RegistrationForm
 from django.contrib.auth import login
@@ -27,4 +26,9 @@ class RegisterView(View):
         if form.is_valid():
             user = form.save()
             login(request,user)
-            redirect('')
+            redirect("")
+        else:
+            print('FORM ERRORS :' ,form.errors)
+            print('REQUEST POST:' ,request.POST)
+            return render(request,"finance/register.html",{'form':form})
+
