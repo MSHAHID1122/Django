@@ -1,9 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
-</html>
+{% extends 'finance/base.html' %} {% block title %} Login {% endblock title %}
+{% block content %}
+<div class="bg-white p-10 rounded-2xl shadow-lg w-full max-w-md text-center">
+  <h2 class="text-4xl font-extrabold text-blue-600 mb-4">Login</h2>
+  <form action="" class="" method="post">
+    {% csrf_token %}
+    <div>
+      <label for="id_username">Enter your name</label>
+      <input
+        class="bg-gray-100"
+        type="text"
+        name="username"
+        id="id_username"
+        placeholder="Enter your name"
+      />
+      {% if form.user_name.errors %}
+      <p>{{form.user_name.errors.0}}</p>
+      {% endif %}
+    </div>
+    <div>
+      <label for="id_email">Enter your Email</label>
+      <input
+        class="bg-gray-100"
+        type="text"
+        name="email"
+        id="id_email"
+        placeholder="Enter your Email"
+      />
+      {% if form.id_email.errors %}
+      <p>{{form.id_email.errors.0}}</p>
+      {% endif %}
+    </div>
+    <div>
+      <label for="id_user_password">Enter your Password</label>
+      <input
+        class="bg-gray-100"
+        type="text"
+        name="password1"
+        id="id_user_password"
+        placeholder="Enter your Password"
+      />
+      {% if form.id_user_password.errors %}
+      <p>{{form.id_user_password.errors.0}}</p>
+      {% endif %}
+    </div>
+    ,
+    <div>
+      <label for="id_confirm_password">Confirm your Password</label>
+      <input
+        class="bg-gray-100"
+        type="text"
+        name="password2"
+        id="id_confirm_password"
+        placeholder="Confirm Password"
+      />
+      {% if form.id_confirm_password.errors %}
+      <p>{{form.id_confirm_password.errors.0}}</p>
+      {% endif %}
+    </div>
+    <div>
+      <button class="w-full bg-indigo-300" type="submit">Register</button>
+    </div>
+  </form>
+</div>
+{% endblock content %}
