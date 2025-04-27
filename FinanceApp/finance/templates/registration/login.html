@@ -43,22 +43,15 @@
       <p>{{form.id_user_password.errors.0}}</p>
       {% endif %}
     </div>
-    ,
-    <div>
-      <label for="id_confirm_password">Confirm your Password</label>
-      <input
-        class="bg-gray-100"
-        type="text"
-        name="password2"
-        id="id_confirm_password"
-        placeholder="Confirm Password"
-      />
-      {% if form.id_confirm_password.errors %}
-      <p>{{form.id_confirm_password.errors.0}}</p>
-      {% endif %}
+    {% if form.non_field.errors %}
+    <div class="text-red-600">
+      {% for error in form.non_field.errors %}
+      <p>{{ error }}</p>
+      {% endfor %}
     </div>
+    {% endif %}
     <div>
-      <button class="w-full bg-indigo-300" type="submit">Register</button>
+      <button class="w-full bg-indigo-300" type="submit">Login</button>
     </div>
   </form>
 </div>
