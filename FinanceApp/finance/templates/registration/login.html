@@ -3,26 +3,16 @@ block content %}
 <div class="bg-white p-10 rounded-2xl shadow-lg w-full max-w-md text-center">
   <h2 class="text-4xl font-extrabold text-blue-600 mb-4">Login</h2>
   <form method="post">
-    {% csrf_token %}
-
-    <!-- Render form fields automatically -->
-    {{ form.as_p }}
-
-    <!-- Show non-field errors (e.g., invalid credentials) -->
-    {% if form.non_field_errors %}
+    <!-- Fix: method="post" (no extra quotes) -->
+    {% csrf_token %} {{ form.as_p }} {% if form.non_field_errors %}
     <div class="text-red-600">
       {% for error in form.non_field_errors %}
       <p>{{ error }}</p>
       {% endfor %}
     </div>
     {% endif %}
-
-    <div>
-      <button class="w-full bg-indigo-300" type="submit">Login</button>
-    </div>
+    <button class="w-full bg-indigo-300" type="submit">Login</button>
   </form>
-
-  <!-- Link to registration page -->
   <p class="mt-4">
     Don't have an account?
     <a href="{% url 'register view' %}" class="text-blue-600">Register here</a>
