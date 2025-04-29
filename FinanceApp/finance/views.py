@@ -2,6 +2,7 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.views import View
 from finance.forms import RegistrationForm
 from django.contrib.auth import login
+from django.contrib.auth.mixins import LoginRequiredMixin
 # #function based view
 # def home(request):
 #     return HttpResponse("Hello World")
@@ -32,7 +33,7 @@ class RegisterView(View):
             print('REQUEST POST:' ,request.POST)
             return render(request,"finance/register.html",{'form':form})
 
-class Dashboard(View):
+class Dashboard(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
         return render(request,'finance/dashboard.html')        
 
