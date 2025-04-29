@@ -10,14 +10,17 @@
     
     <!-- Navbar -->
     <nav class="w-full bg-white shadow-md px-6 py-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <div class="text-xl font-bold text-blue-600">
-          <a href="/">MyWebsite</a>
+      <div class="container mx-auto flex  items-center">
+        {% if user.is_authenticated %}
+        <div class="space-x-6">
+          <a href="{% url 'logout' %}" class="text-gray-700 hover:text-blue-500 font-medium transition">Logout</a>
         </div>
+        {% else %}
         <div class="space-x-6">
           <a href="{% url 'login' %}" class="text-gray-700 hover:text-blue-500 font-medium transition">Login</a>
           <a href="{% url 'register' %}" class="text-gray-700 hover:text-blue-500 font-medium transition">Register</a>
         </div>
+        {% endif %}
       </div>
     </nav>
 
