@@ -6,7 +6,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>{% block title %}{% endblock %}</title>
   </head>
-  <body class="bg-gray-100 min-h-screen">
+  <body class="bg-gray-100 min-h-screen flex flex-col">
     
     <!-- Navbar -->
     <nav class="w-full bg-white shadow-md px-6 py-4">
@@ -22,7 +22,7 @@
     </nav>
 
     <!-- Content Area -->
-    <main class="container mx-auto px-4 py-8">
+    <main class="flex-grow flex items-center justify-center mt-10">
       {% block content %}{% endblock %}
     </main>
 
