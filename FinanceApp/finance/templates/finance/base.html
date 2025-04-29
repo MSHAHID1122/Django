@@ -6,11 +6,25 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>{% block title %}{% endblock %}</title>
   </head>
-  <body class="bg-gray-100 flex justify-center min-h-screen">
-     <nav>
-      <a href="{% url 'login'% }"> Login</a>
-      <a href="{% url 'register'% }"> Register</a>
-     </nav>
-    {% block content %}{% endblock %}
+  <body class="bg-gray-100 min-h-screen">
+    
+    <!-- Navbar -->
+    <nav class="w-full bg-white shadow-md px-6 py-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="text-xl font-bold text-blue-600">
+          <a href="/">MyWebsite</a>
+        </div>
+        <div class="space-x-6">
+          <a href="{% url 'login' %}" class="text-gray-700 hover:text-blue-500 font-medium transition">Login</a>
+          <a href="{% url 'register' %}" class="text-gray-700 hover:text-blue-500 font-medium transition">Register</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Content Area -->
+    <main class="container mx-auto px-4 py-8">
+      {% block content %}{% endblock %}
+    </main>
+
   </body>
 </html>

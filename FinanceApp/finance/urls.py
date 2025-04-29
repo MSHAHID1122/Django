@@ -5,5 +5,5 @@ urlpatterns = [
     # path('home/',home,name="home"),
     # path('myhome/',Home.as_view(),name="myhome")
 
-    path("",RegisterView.as_view(),name="register view")
+    path("",RegisterView.as_view(),name="register")
 ]
