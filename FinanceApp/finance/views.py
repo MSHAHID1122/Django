@@ -26,9 +26,13 @@ class RegisterView(View):
         if form.is_valid():
             user = form.save()
             login(request,user)
-            redirect("")
+            redirect("dashboard")
         else:
             print('FORM ERRORS :' ,form.errors)
             print('REQUEST POST:' ,request.POST)
             return render(request,"finance/register.html",{'form':form})
+
+class Dashboard(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,'finance/dashboard.html')        
 
