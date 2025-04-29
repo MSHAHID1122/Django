@@ -7,6 +7,10 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body class="bg-gray-100 flex justify-center min-h-screen">
+     <nav>
+      <a href="{% url 'login'% }"> Login</a>
+      <a href="{% url 'register'% }"> Register</a>
+     </nav>
     {% block content %}{% endblock %}
   </body>
 </html>
