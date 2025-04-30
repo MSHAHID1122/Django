@@ -37,3 +37,6 @@ class Dashboard(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
         return render(request,'finance/dashboard.html')        
 
+class TranscationView(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,'finance/transcation_form.html')
