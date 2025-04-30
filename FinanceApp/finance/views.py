@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.views import View
-from finance.forms import RegistrationForm
+from finance.forms import RegistrationForm,TranscationForm
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 # #function based view
@@ -39,4 +39,5 @@ class Dashboard(LoginRequiredMixin,View):
 
 class TranscationView(View):
     def get(self,request,*args,**kwargs):
-        return render(request,'finance/transcation_form.html')
+        form = T
+        return render(request,'finance/transcation_form.html',{'form':form})
