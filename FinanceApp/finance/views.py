@@ -41,3 +41,9 @@ class TranscationView(View):
     def get(self,request,*args,**kwargs):
         form = TranscationForm()
         return render(request,'finance/transcation_form.html',{'form':form})
+    def post(self,request,*args,**kwargs):
+        form = TranscationForm(request.POST)
+        if form.is_valid():
+            transcation = form.save(commit=False)
+            transcation.user=
+            transcation
