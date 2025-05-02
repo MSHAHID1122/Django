@@ -3,6 +3,7 @@ from django.views import View
 from finance.forms import RegistrationForm,TranscationForm
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Transcation
 # #function based view
 # def home(request):
 #     return HttpResponse("Hello World")
@@ -53,5 +54,5 @@ class TranscationView(View):
 
 class ShowTranscationList(View):
     def get(self,request,*args,**kwargs):
-        form = 
-        return render(request,'finance/transcation_list.html',{'form':form})        
+        mylist = Transcation.objects.all()
+        return render(request,'finance/transcation_list.html',{'transcation':mylist})        
