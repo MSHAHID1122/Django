@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Transcation
+from .models import TranscationModel
 # Register your models here.
-admin.site.register(Transcation)
+admin.site.register(TranscationModel)
