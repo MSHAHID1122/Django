@@ -47,4 +47,6 @@ class TranscationView(View):
             transcation = form.save(commit=False)
             transcation.user= request.user
             transcation.save(0)
-            redirect('dashboard')
+            return redirect('dashboard')
+        else:
+            return render(request,'finance/transcation_form.html',{'form':form})
