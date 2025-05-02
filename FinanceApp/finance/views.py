@@ -45,5 +45,5 @@ class TranscationView(View):
         form = TranscationForm(request.POST)
         if form.is_valid():
             transcation = form.save(commit=False)
-            transcation.user=
-            transcation
+            transcation.user= request.user
+            transcation.save(0)
