@@ -47,3 +47,4 @@ class TranscationView(View):
             transcation = form.save(commit=False)
             transcation.user= request.user
             transcation.save(0)
+            redirect('dashboard')
