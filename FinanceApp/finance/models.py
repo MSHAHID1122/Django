@@ -9,3 +9,5 @@ class Transcation(models.Model):
     Transcation_type = models.CharField(max_length=20,choices= TRANSCATION_TYPES)
     date = models.DateField()
     category = models.CharField(max_length=255)
+    def __str__(self):
+        return str(self.title)
