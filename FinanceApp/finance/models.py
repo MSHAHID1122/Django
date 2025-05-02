@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-class Transcation(models.Model):
+class TranscationModel(models.Model):
     TRANSCATION_TYPES = [('Income','Income'),
                         ('Expense','Expense')]
     user = models.ForeignKey(User,on_delete=models.CASCADE)
