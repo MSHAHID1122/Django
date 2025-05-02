@@ -50,3 +50,8 @@ class TranscationView(View):
             return redirect('dashboard')
         else:
             return render(request,'finance/transcation_form.html',{'form':form})
+
+class ShowTranscationList(View):
+    def get(self,request,*args,**kwargs):
+        form = 
+        return render(request,'finance/transcation_list.html',{'form':form})        

@@ -7,5 +7,6 @@ urlpatterns = [
 
     path("register",RegisterView.as_view(),name="register"),
     path('',Dashboard.as_view(),name='dashboard'),
-    path('transcation',TranscationView.as_view(),name='transcation')
+    path('transcation',TranscationView.as_view(),name='transcation'),
+    path('transcation_list',name='transcation_list')
 ]
