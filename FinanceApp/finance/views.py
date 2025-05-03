@@ -4,6 +4,7 @@ from finance.forms import RegistrationForm,TranscationForm
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import TransactionModel
+from django.db.models import Sum
 # #function based view
 # def home(request):
 #     return HttpResponse("Hello World")
@@ -36,7 +37,11 @@ class RegisterView(View):
 
 class Dashboard(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
-        return render(request,'finance/dashboard.html')        
+        transaction = TransactionModel.objects.filter(user = request.user)
+        totalIncome = TransactionModel.objects.filter(user = request.user,transcation_type ='Income').aggregate(Sum('amount'))['amount__sum'] or 0
+        totalExpense = TransactionModel.objects.filter(user = request.user,transcation_type ='Expense').aggregate(Sum('amount'))['amount__sum'] or 0
+        net_saving = totalIncome - totalExpense
+        return render(request,'finance/dashboard.html')     
 
 class TranscationView(View):
     def get(self,request,*args,**kwargs):
