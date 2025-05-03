@@ -1,3 +1,7 @@
 {% extends 'finance/base.html' %}
 {% block title %} Dashboard {% endblock %}
-{% block content %} This is dashbord{% endblock %}
+{% block content %} 
+<div>
+    <h1>Welcome to your dashboard </h1>
+    <h2>{{request.user|capfirst}}</h2>
+</div>{% endblock %}
