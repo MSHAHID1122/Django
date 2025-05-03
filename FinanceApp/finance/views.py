@@ -53,5 +53,5 @@ class TranscationView(View):
             return render(request,'finance/transcation_form.html',{'form':form})
 class TransactionList(View):
     def get(self,request,*args,**kwargs):
-        transaction1 = TransactionModel.objects.all()
-        return render(request,'finance/transcation_list.html',{'trasaction':transaction1})
+        transaction = TransactionModel.objects.all()
+        return render(request,'finance/transcation_list.html',{'transaction':transaction})
