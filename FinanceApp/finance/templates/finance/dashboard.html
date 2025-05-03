@@ -1,7 +1,21 @@
 {% extends 'finance/base.html' %}
-{% block title %} Dashboard {% endblock %}
-{% block content %} 
-<div>
-    <h1>Welcome to your dashboard </h1>
-    <h2>{{request.user|capfirst}}</h2>
-</div>{% endblock %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto mt-12 p-8 bg-white shadow-lg rounded-2xl">
+    <h1 class="text-3xl font-bold text-gray-800 mb-2">Welcome to Your Dashboard</h1>
+    <h2 class="text-xl text-gray-600 mb-6">Hello, {{ request.user|capfirst }}</h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="p-6 bg-green-100 border-l-4 border-green-500 rounded shadow">
+            <p class="text-lg text-green-800 font-semibold">Total Income</p>
+            <p class="text-2xl font-bold text-green-700 mt-1">Rs. {{ income }}</p>
+        </div>
+
+        <div class="p-6 bg-red-100 border-l-4 border-red-500 rounded shadow">
+            <p class="text-lg text-red-800 font-semibold">Total Expense</p>
+            <p class="text-2xl font-bold text-red-700 mt-1">Rs. {{ expense }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
