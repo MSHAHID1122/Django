@@ -1,9 +1,9 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.views import View
-from finance.forms import RegistrationForm,TranscationForm
+from finance.forms import RegistrationForm,TranscationForm,GoalForm
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import TransactionModel
+from .models import TransactionModel,Goal
 from django.db.models import Sum
 # #function based view
 # def home(request):
@@ -49,7 +49,7 @@ class Dashboard(LoginRequiredMixin,View):
         }
         return render(request,'finance/dashboard.html',context)     
 
-class TranscationView(View):
+class TranscationView(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
         form = TranscationForm()
         return render(request,'finance/transcation_form.html',{'form':form})
@@ -62,7 +62,20 @@ class TranscationView(View):
             return redirect('dashboard')
         else:
             return render(request,'finance/transcation_form.html',{'form':form})
-class TransactionList(View):
+class TransactionList(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
         transactions = TransactionModel.objects.all()
         return render(request,'finance/transcation_list.html',{'transactions':transactions})
+    
+class GoadView(LoginRequiredMixin,View):
+    def get(self,request,*args,**kwargs):
+        form = GoalForm()
+        return render(request,'finance/set_goal.html',{'form':form})
+    def post(self,request,*args,**kwargs):
+        form = GoalForm(request.POST)
+        if form.is_valid():
+            tran_goal = form.save(commit=False)
+            tran_goal.user = request.user
+            tran_goal.save()
+            
+        

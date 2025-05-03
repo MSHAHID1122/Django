@@ -18,7 +18,7 @@ class TranscationForm(forms.ModelForm):
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
         }
-class GoadForm(forms.ModelForm):
+class GoalForm(forms.ModelForm):
     class Meta:
         goal = Goal
         fields = ['name','amount','deadline']
