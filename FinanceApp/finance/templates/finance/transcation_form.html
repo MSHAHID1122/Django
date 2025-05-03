@@ -1,35 +1,50 @@
 {% extends 'finance/base.html' %}
-{% block title %} Transcation details {% endblock %}
-{% block content %} 
+{% block title %} Add Transaction {% endblock %}
+
+{% block content %}
 <div class="bg-white p-10 rounded-2xl shadow-lg w-full max-w-md text-center">
-    <h2 class="text-4xl font-extrabold text-blue-600 mb-4">Add details</h2>
+    <h2 class="text-4xl font-extrabold text-blue-600 mb-4">Add Transaction</h2>
     <form method="post">
-      {% csrf_token %}
-  
-      <!-- Render form fields with error handling -->
-      {% for field in form %}
-      <div class="mb-4">
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        {{ field }} {% if field.errors %}
-        <div class="text-red-600 text-sm">{{ field.errors.0 }}</div>
-        {% endif %}
-      </div>
-      {% endfor %}
-  
-      <!-- Non-field errors (e.g., password mismatch) -->
-      {% if form.non_field_errors %}
-      <div class="text-red-600">
-        {% for error in form.non_field_errors %}
-        <p>{{ error }}</p>
-        {% endfor %}
-      </div>
-      {% endif %}
-  
-      <div>
-        <button class="w-full bg-indigo-300" type="submit">Add</button>
-      </div>
+        {% csrf_token %}
+        
+        <!-- Title -->
+        <div class="mb-4">
+            <label class="block text-left mb-1">Title</label>
+            {{ form.title }}
+            {{ form.title.errors }}
+        </div>
+
+        <!-- Amount -->
+        <div class="mb-4">
+            <label class="block text-left mb-1">Amount</label>
+            {{ form.amount }}
+            {{ form.amount.errors }}
+        </div>
+
+        <!-- Transaction Type -->
+        <div class="mb-4">
+            <label class="block text-left mb-1">Type</label>
+            {{ form.Transcation_type }}
+            {{ form.Transcation_type.errors }}
+        </div>
+
+        <!-- Date -->
+        <div class="mb-4">
+            <label class="block text-left mb-1">Date</label>
+            {{ form.date }}
+            {{ form.date.errors }}
+        </div>
+
+        <!-- Category -->
+        <div class="mb-4">
+            <label class="block text-left mb-1">Category</label>
+            {{ form.category }}
+            {{ form.category.errors }}
+        </div>
+
+        <button class="w-full bg-indigo-300 py-2 rounded-md hover:bg-indigo-400 transition" type="submit">
+            Add Transaction
+        </button>
     </form>
-  
-    
-  </div>
+</div>
 {% endblock %}
