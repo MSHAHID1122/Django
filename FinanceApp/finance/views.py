@@ -38,9 +38,23 @@ class RegisterView(View):
 class Dashboard(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
         transaction = TransactionModel.objects.filter(user = request.user)
+        goals = TransactionModel.objects.filter(user = request.user)
         totalIncome = TransactionModel.objects.filter(user = request.user,Transcation_type ='Income').aggregate(Sum('amount'))['amount__sum'] or 0
         totalExpense = TransactionModel.objects.filter(user = request.user,Transcation_type ='Expense').aggregate(Sum('amount'))['amount__sum'] or 0
         net_saving = totalIncome - totalExpense
+        remaining_saving = net_saving
+        goal_progress = []
+        
+        for goal in goals:
+            if remaining_saving>=goal.amount:
+                goal_progress.append({'goal':goal,'progress':100})
+                remaining_saving -= goal.amount
+            elif remaining_saving<goal.amount:
+                per = (remaining_saving/goal.amount)*100
+                goal_progress.append({'goal':goal,'progress':per}) 
+                remaining_saving -= goal.amount
+            else:
+                goal_progress.append({'goal':goal,'progress':0})    
         context = {
         "transaction":transaction,
         'income':totalIncome,
@@ -77,5 +91,7 @@ class GoadView(LoginRequiredMixin,View):
             tran_goal = form.save(commit=False)
             tran_goal.user = request.user
             tran_goal.save()
+            return redirect('dashboard')
+        return render(request,'finance/set_goal.html',{'form':form})
             
         
