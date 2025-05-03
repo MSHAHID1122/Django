@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 from django import forms
-from .models import TransactionModel
+from .models import TransactionModel,Goal
 
 
 class RegistrationForm(UserCreationForm):
@@ -18,3 +18,10 @@ class TranscationForm(forms.ModelForm):
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
         }
+class GoadForm(forms.ModelForm):
+    class Meta:
+        goal = Goal
+        fields = ['name','amount','deadline']
+        widgets ={
+            'deadline':forms.DateInput(attrs={'type':'date'})
+        }        

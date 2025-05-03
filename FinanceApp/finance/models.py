@@ -11,3 +11,9 @@ class TransactionModel(models.Model):
     category = models.CharField(max_length=255)
     def __str__(self):
         return str(self.title)
+
+class Goal(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    amount = models.DecimalField(max_digits=30,decimal_places=2)
+    deadline = models.DateField()    
