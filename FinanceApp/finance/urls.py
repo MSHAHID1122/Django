@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from finance.views import RegisterView,Dashboard,TranscationView,TransactionList
+from finance.views import RegisterView,Dashboard,TranscationView,TransactionList,GoalView
 urlpatterns = [
     # path('home/',home,name="home"),
     # path('myhome/',Home.as_view(),name="myhome")
@@ -8,5 +8,6 @@ urlpatterns = [
     path("register",RegisterView.as_view(),name="register"),
     path('',Dashboard.as_view(),name='dashboard'),
     path('transcation',TranscationView.as_view(),name='transcation'),
-    path('transcationlist',TransactionList.as_view(),name='transcationlist')
+    path('transcationlist',TransactionList.as_view(),name='transcationlist'),
+    path('setgoal',GoalView.as_view(),name='setgoal'),
 ]

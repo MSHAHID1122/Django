@@ -59,7 +59,8 @@ class Dashboard(LoginRequiredMixin,View):
         "transaction":transaction,
         'income':totalIncome,
         'expense':totalExpense,
-        'total_saving':net_saving
+        'total_saving':net_saving,
+        'goal_progress':goal_progress
         }
         return render(request,'finance/dashboard.html',context)     
 
@@ -81,7 +82,7 @@ class TransactionList(LoginRequiredMixin,View):
         transactions = TransactionModel.objects.all()
         return render(request,'finance/transcation_list.html',{'transactions':transactions})
     
-class GoadView(LoginRequiredMixin,View):
+class GoalView(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
         form = GoalForm()
         return render(request,'finance/set_goal.html',{'form':form})
