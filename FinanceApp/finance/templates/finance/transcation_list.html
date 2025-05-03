@@ -11,7 +11,7 @@
     </div>
 
     <div class="space-y-4">
-        {% for transaction in trasaction %}
+        {% for transaction in transactions %}
         <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 {% if transaction.Transcation_type == 'Income' %}border-green-500{% else %}border-red-500{% endif %}">
             <div class="flex justify-between items-start">
                 <div>
@@ -19,7 +19,7 @@
                     <p class="text-sm text-gray-500">{{ transaction.date }}</p>
                 </div>
                 <span class="text-sm {% if transaction.Transcation_type == 'Income' %}text-green-600{% else %}text-red-600{% endif %}">
-                    ${{ transaction.amount }}
+                    ${{ transaction.amount  }}
                 </span>
             </div>
             <div class="mt-2 flex items-center space-x-2">
