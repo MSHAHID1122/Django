@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 from django import forms
-from .models import TranscationModel
+from .models import TransactionModel
 
 
 class RegistrationForm(UserCreationForm):
@@ -13,5 +13,5 @@ class RegistrationForm(UserCreationForm):
 
 class TranscationForm(forms.ModelForm):
     class Meta:
-        model = TranscationModel
+        model = TransactionModel
         fields = ['title','amount','Transcation_type','date','category']
