@@ -38,7 +38,7 @@ class RegisterView(View):
 class Dashboard(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
         transaction = TransactionModel.objects.filter(user = request.user)
-        goals = TransactionModel.objects.filter(user = request.user)
+        goals = Goal.objects.filter(user = request.user)
         totalIncome = TransactionModel.objects.filter(user = request.user,Transcation_type ='Income').aggregate(Sum('amount'))['amount__sum'] or 0
         totalExpense = TransactionModel.objects.filter(user = request.user,Transcation_type ='Expense').aggregate(Sum('amount'))['amount__sum'] or 0
         net_saving = totalIncome - totalExpense

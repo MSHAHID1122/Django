@@ -5,8 +5,8 @@
 <div class="max-w-4xl mx-auto mt-12 p-8 bg-white shadow-lg rounded-2xl">
     <h1 class="text-3xl font-bold text-gray-800 mb-2">Welcome to Your Dashboard</h1>
     <h2 class="text-xl text-gray-600 mb-6">Hello, {{ request.user|capfirst }}</h2>
-    
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
         <div class="p-6 bg-green-100 border-l-4 border-green-500 rounded shadow">
             <p class="text-lg text-green-800 font-semibold">Total Income</p>
             <p class="text-2xl font-bold text-green-700 mt-1">Rs. {{ income }}</p>
@@ -16,6 +16,27 @@
             <p class="text-lg text-red-800 font-semibold">Total Expense</p>
             <p class="text-2xl font-bold text-red-700 mt-1">Rs. {{ expense }}</p>
         </div>
+    </div>
+
+    <div class="mt-8">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Your Goals & Progress</h3>
+
+        {% if goal_progress %}
+            <div class="space-y-6">
+                {% for item in goal_progress %}
+                    <div class="bg-gray-100 p-4 rounded-lg shadow">
+                        <p class="font-medium text-gray-700">{{ item.goal.title }} — Rs. {{ item.goal.amount }}</p>
+                        <div class="w-full bg-gray-300 rounded-full h-4 mt-2">
+                            <div class="bg-blue-500 h-4 rounded-full text-right text-xs text-white font-bold" style="width: {{ item.progress|floatformat:0 }}%;">
+                                {{ item.progress|floatformat:0 }}%
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-gray-500">No goals set yet.</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

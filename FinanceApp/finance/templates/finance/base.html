@@ -14,8 +14,11 @@
         {% if user.is_authenticated %}
         <div class="space-x-6">
           
-          <a href="{% url 'logout' %}" class="text-gray-700 hover:text-blue-500 font-medium transition">Logout</a>
+          <a href="{% url 'dashboard' %}" class="text-gray-700 hover:text-blue-500 font-medium transition"> Dashboard</a>
+          <a href="{% url 'transcationlist' %}" class="text-gray-700 hover:text-blue-500 font-medium transition"> TransactionList</a>
           <a href="{% url 'transcation' %}" class="text-gray-700 hover:text-blue-500 font-medium transition"> Add</a>
+          <a href="{% url 'setgoal' %}" class="text-gray-700 hover:text-blue-500 font-medium transition"> Set Goal</a>
+          <a href="{% url 'logout' %}" class="text-gray-700 hover:text-blue-500 font-medium transition">Logout</a>
         </div>
         {% else %}
         <div class="space-x-6">
