@@ -1,5 +1,41 @@
-{% extends 'finance/base.html' %}
-{% block title %}  Transcation List {% endblock %}
-{% block content %}
+{% extends 'base.html' %}
+{% block title %}Transaction List{% endblock %}
 
+{% block content %}
+<div class="w-full max-w-2xl px-4">
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-semibold text-gray-800">Your Transactions</h1>
+        <a href="{% url 'transcation' %}" class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-600 transition">
+            Add New
+        </a>
+    </div>
+
+    <div class="space-y-4">
+        {% for transaction in trasaction %}
+        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 {% if transaction.Transcation_type == 'Income' %}border-green-500{% else %}border-red-500{% endif %}">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="font-medium text-gray-900">{{ transaction.title }}</h3>
+                    <p class="text-sm text-gray-500">{{ transaction.date }}</p>
+                </div>
+                <span class="text-sm {% if transaction.Transcation_type == 'Income' %}text-green-600{% else %}text-red-600{% endif %}">
+                    ${{ transaction.amount }}
+                </span>
+            </div>
+            <div class="mt-2 flex items-center space-x-2">
+                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-600">
+                    {{ transaction.get_Transcation_type_display }}
+                </span>
+                <span class="text-sm text-gray-500">
+                    {{ transaction.category }}
+                </span>
+            </div>
+        </div>
+        {% empty %}
+        <div class="bg-white p-6 rounded-lg text-center text-gray-500">
+            No transactions found
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
