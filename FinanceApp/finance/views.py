@@ -3,7 +3,7 @@ from django.views import View
 from finance.forms import RegistrationForm,TranscationForm
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import TranscationModel
+from .models import TransactionModel
 # #function based view
 # def home(request):
 #     return HttpResponse("Hello World")
@@ -47,11 +47,11 @@ class TranscationView(View):
         if form.is_valid():
             transcation = form.save(commit=False)
             transcation.user= request.user
-            transcation.save(0)
+            transcation.save()
             return redirect('dashboard')
         else:
             return render(request,'finance/transcation_form.html',{'form':form})
 class TransactionList(View):
     def get(self,request,*args,**kwargs):
-        mylist = TranscationModel.objects.all()
-        return render(request,'finance/transcation_listhtml',{'trasaction':mylist})
+        transaction1 = TransactionModel.objects.all()
+        return render(request,'transcation_list.html',{'trasaction':transacton1})
